@@ -10,7 +10,7 @@ export CLANG_TRIPLE=/usr/bin/aarch64-linux-gnu-
 export PATH="$CLANG_PATH/bin:$GCC_PATH/bin:$GCC_ARM32_PATH/bin:${PATH}"
 cd $TMP && cd android_kernel_xiaomi_mt6768
 mkdir out
-export CROSS_COMPILE="/usr/bin/aarch64-linux-android-"
+export CROSS_COMPILE="$TMP/aarch64-linux-android-4.9"
 export CROSS_COMPILE_ARM32="/usr/bin/arm-linux-androideabi-"
 make O=out lancelot_defconfig
 make O=out CC=$CC -j$(nproc --all)
