@@ -1,7 +1,8 @@
+apt update && apt upgrade
 apt-get install gcc-arm* gcc-aarch64-linux-gnu android-tools-mkbootimg bc bison build-essential ca-certificates cpio curl flex git kmod libssl-dev libtinfo5 python2 python python3 gcc g++ sudo unzip wget xz-utils -y --no-install-recommends
 apt autoremove python && apt install python #fix DrvGen.py for gitpod.io
 export ARCH=arm64
-git clone https://github.com/areyoudeveloper1/android_kernel_xiaomi_mt6768/ -b eleven --depth 1
+git clone https://github.com/https-skilt-produktion/android_kernel_xiaomi_mt6768 --depth 1
 export TMP=/workspace/lancelot-kernel-builder/
 git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b pie-gsi --depth 1
 export GCC_PATH="$TMP/aarch64-linux-android-4.9"
