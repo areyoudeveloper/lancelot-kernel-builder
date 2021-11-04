@@ -1,13 +1,12 @@
 export ARCH=arm64
 git clone https://github.com/areyoudeveloper1/android_kernel_xiaomi_mt6768/ -b eleven --depth 1
-export TMPDOWN=$(mktemp -d)
-cd "$TMPDOWN"
+export TMP=/workspace/lancelot-kernel-builder/
 git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b pie-gsi --depth 1
-export GCC_PATH="$TMPDOWN/aarch64-linux-android-4.9"
+export GCC_PATH="$TMP/aarch64-linux-android-4.9"
 git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b pie-gsi --depth 1
-export GCC_ARM32_PATH="$TMPDOWN/arm-linux-androideabi-4.9"
+export GCC_ARM32_PATH="$TMP/arm-linux-androideabi-4.9"
 git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 -b android10-gsi --depth 1
-export CLANG_PATH="$TMPDOWN/linux-x86/clang-r353983c"
+export CLANG_PATH="$TMP/linux-x86/clang-r353983c"
 export CC=clang 
 export CLANG_TRIPLE=aarch64-linux-gnu- 
 export PATH="$CLANG_PATH/bin:$GCC_PATH/bin:$GCC_ARM32_PATH/bin:${PATH}"
@@ -26,7 +25,7 @@ clean:
 EOF
 
 make ufdt_apply_overlay
-cd /home/runner/work/lancelot-kernel-builder/lancelot-kernel-builder/android_kernel_xiaomi_mt6768/
+cd "$TMP" && cd lancelot-kernel-builder/android_kernel_xiaomi_mt6768/
 mkdir out
 export CROSS_COMPILE="aarch64-linux-android-"
 export CROSS_COMPILE_ARM32="arm-linux-androideabi-"
