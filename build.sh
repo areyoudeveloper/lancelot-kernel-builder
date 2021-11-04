@@ -30,7 +30,7 @@ EOF
 make ufdt_apply_overlay
 cd $TMP && cd android_kernel_xiaomi_mt6768
 mkdir out
-export CROSS_COMPILE="/usr/bin/aarch64-linux-android-"
-export CROSS_COMPILE_ARM32="/usr/bin/arm-linux-androideabi-"
+export CROSS_COMPILE=$GCC_PATH
+export CROSS_COMPILE_ARM32=$GCC_ARM32_PATH
 make O=out lancelot_defconfig
 make O=out CC=$CC -j$(nproc --all)
