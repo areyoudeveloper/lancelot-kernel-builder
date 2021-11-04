@@ -25,7 +25,7 @@ clean:
 EOF
 
 make ufdt_apply_overlay
-cd "$TMP" && cd lancelot-kernel-builder/android_kernel_xiaomi_mt6768/
+cd $TMP && cd lancelot-kernel-builder/android_kernel_xiaomi_mt6768/
 mkdir out
 export CROSS_COMPILE="aarch64-linux-android-"
 export CROSS_COMPILE_ARM32="arm-linux-androideabi-"
